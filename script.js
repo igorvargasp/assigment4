@@ -18,7 +18,6 @@ const inputDigit = (digit) => {
       handleSign();
     }
   }
-  console.log(calculator);
 };
 
 const inputDecimal = (dot) => {
@@ -49,7 +48,6 @@ const handleOperator = (nextOperator) => {
 
   if (operator && calculator.waitingForSecondOperand) {
     calculator.operator = nextOperator;
-    console.log(calculator);
     return;
   }
 
@@ -57,7 +55,7 @@ const handleOperator = (nextOperator) => {
     calculator.firstOperand = inputValue;
   } else if (operator) {
     const result = calculate(firstOperand, inputValue, operator);
-    console.log(result);
+
     if (operator === "/" && displayValue === "0") {
       calculator.displayValue = "Very funny";
       return;
@@ -122,7 +120,6 @@ const calculate = (firstOperand, secondOperand, operator) => {
   } else if (operator === "/") {
     return firstOperand / secondOperand;
   } else if (operator == "%") {
-    console.log(firstOperand / 100);
     return firstOperand / 100;
   }
 
@@ -134,5 +131,4 @@ const reset = () => {
   calculator.firstOperand = null;
   calculator.waitingForSecondOperand = false;
   calculator.operator = null;
-  console.log(calculator);
 };
